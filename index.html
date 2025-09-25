@@ -68,7 +68,6 @@
 
     .hero__inner{max-width: var(--maxw); width:100%; display:grid; grid-template-columns: 1fr; gap:.85rem; text-align:center; transform: translateY(-8vh);}
     h1{margin:0; font-size: clamp(2.1rem, 6.2vw, 3.6rem); line-height:1.05; letter-spacing:.2px; color:var(--ink-1); text-shadow: 0 2px 4px rgba(0,0,0,.35)}
-    .lead{margin:0 auto; max-width: 900px; font-weight:600; color:var(--ink-2); text-shadow: 0 1px 3px rgba(0,0,0,.25); font-size:110%;}
 
     .cta{--g: radial-gradient(120% 200% at 30% 20%, var(--metal-2) 0 30%, var(--metal-1) 50%, var(--metal-3) 70%, #6f767d 100%);
       display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
@@ -103,7 +102,13 @@
       .hero__inner{transform: translateY(-2vh);} }
 
     /* CTA row pinned near bottom of hero, still above the fold */
-    .cta-row{position:absolute; left:0; right:0; bottom:6vh; display:flex; justify-content:center;} }
+    .cta-row{position:absolute; left:0; right:0; bottom:6vh; display:flex; justify-content:center; flex-direction:column; align-items:center; gap:16px;}
+
+    /* Hover banner positioned above CTA */
+    .lead-banner{max-width:980px; background: rgba(10,14,18,.72); color:#f7fafc; padding:14px 16px; border-radius:14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.28); line-height:1.35; font-weight:600; font-size:115%;
+      opacity:0; pointer-events:none; transition: opacity .18s ease, transform .18s ease; text-align:center;}
+    .hero:hover .lead-banner, .lead-banner:hover{opacity:1; transform:translateY(0);}
   </style>
 </head>
 <body>
@@ -121,10 +126,12 @@
     <section class="hero">
       <div class="hero__inner">
         <h1>Trusted Sovereign Aircraft Solutions</h1>
-        <p class="lead">We structure and finance business jets for governments and heads of state — Best practice solutions and absolute discretion.</p>
         <div class="rule" aria-hidden="true"></div>
       </div>
-      <div class="cta-row"><a class="cta" href="mailto:contact@sovereignone.website?subject=Enquiry — Sovereign One">Start a Conversation</a></div>
+      <div class="cta-row">
+        <div class="lead-banner">We structure and finance business jets for governments and heads of state — Best practice solutions and absolute discretion.</div>
+        <a class="cta" href="mailto:contact@sovereignone.website?subject=Enquiry — Sovereign One">Start a Conversation</a>
+      </div>
     </section>
 
     <section class="section">
